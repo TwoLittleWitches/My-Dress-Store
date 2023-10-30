@@ -4,7 +4,7 @@ const config = {
   jwtSecret: process.env.JWT_SECRET || "YOUR_secret_key",
   mongoUri:
     process.env.MONGODB_URI ||
-    "mongodb+srv://*sh*****:************@cluster0.uha3lbe.mongodb.net/DressStore?retryWrites=true&w=majority" ||
+    "mongodb+srv://sh*****:************@cluster0.uha3lbe.mongodb.net/DressStore?retryWrites=true&w=majority" ||
     process.env.MONGO_HOST ||
     +(process.env.IP || "localhost") +
       ":" +
@@ -12,3 +12,5 @@ const config = {
       "/mernproject",
 };
 export default config;
+
+// Credentials revoked
