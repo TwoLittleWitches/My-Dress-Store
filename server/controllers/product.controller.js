@@ -35,7 +35,7 @@ const productsByKeyword = async (req, res) => {
     res.json(products);
   } catch (err) {
     console.error(err); // Log the error for debugging
-    return res.status(500).json({
+    return res.status(400).json({
       error: err.message, // Return the actual error message
     });
   }
@@ -51,7 +51,7 @@ const list = async (req, res) => {
     res.json(products);
   } catch (err) {
     console.error(err); // Log the error for debugging
-    return res.status(500).json({
+    return res.status(400).json({
       error: err.message, // Return the actual error message
     });
   }
@@ -61,11 +61,11 @@ const list = async (req, res) => {
 const productByID = async (req, res, next, id) => {
   try {
     let product = await Product.findById(id);
-    if (!product) return res.status("400").json({ error: "Product not found" });
+    if (!product) return res.status(400).json({ error: "Product not found" });
     req.profile = product;
     next();
   } catch (err) {
-    return res.status("400").json({
+    return res.status(400).json({
       error: "Could not retrieve product",
     });
   }
@@ -124,7 +124,7 @@ const removeAll = async (req, res) => {
     res.json(deletedProducts);
   } catch (err) {
     console.error(err);
-    res.status(500).json({
+    res.status(400).json({
       error: err.message,
     });
   }
